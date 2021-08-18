@@ -5,11 +5,105 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Placeholder</title>
+        <script src="https://cdn.jsdelivr.net/npm/pretty-print-json@1.1/dist/pretty-print-json.min.js"></script>
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/npm/pretty-print-json@1.1/dist/pretty-print-json.dark-mode.css">
     </head>
     <body>
         <h1>TournamentOrganisator</h1>
         <p>
-            this page is just a Placeholder for the docs of TournamentOrganisator
+            this page is just a Placeholder for the docs of TournamentOrganisator, here you can see, how the Docs will look like:
         </p>
+        <details id="code">
+            <summary><p>GET</p><p>https://api.example.com</p></summary>
+            <pre><code class="json">
+            {
+                "tournament": {
+                    "name": "TournamentName",
+                    "startDate": "2020-01-01",
+                    "endDate": "2020-01-01",
+                    "teams": [
+                        {
+                            "name": "TeamName",
+                            "players": [
+                                {
+                                    "name": "PlayerName",
+                                    "id": "PlayerId"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+            </code></pre>
+        </details>
+        <style>
+            #code {
+                background-color: #141414;
+                border-radius: 10px;
+                min-height: 60px;
+                display:inline-block;
+                width: 100%;
+            }
+            #code > p {
+                margin-top: 10px;
+                margin-left: 10px;
+                color: #fff;
+            }
+            #code summary {
+                margin: 10px 10px 10px 10px;
+                padding: 10px;
+                color: #aaa;
+                cursor: pointer;
+                text-decoration: none;
+                list-style: none;
+                border: none;
+                background-color: #333;
+                border-radius: 5px;
+                display: inline-block;
+            }
+            #code summary::after {
+                content: "⯈";
+                display: inline-block;
+                padding-right: 5px;
+                transform: rotate(90deg) translate(3px, 0px);
+                transition: transform 0.2s;
+            }
+            #code[open] summary::after {
+                transform: rotate(270deg) translate(1px, -1px);
+            } 
+            #code > summary > p:first-child {
+                margin: 0;
+                margin-top: 10px;
+                padding: 4px;
+                border-radius: 2px;
+                display: inline;
+                background-color: #2d2;
+                color: #000;
+            }
+            #code > summary > p:last-child {
+                margin: 0;
+                padding: 4px;
+                display: inline;
+                color: #fff;
+            }
+            body {
+                background-color: #fff;
+                color: #000;
+            }
+            pre > .json {
+                margin-bottom: 10px;
+                transform: translate(20px, 0);
+                display: inline-block;
+            }
+        </style>
     </body>
+    <script>
+        var json = document.getElementsByClassName("json");
+        
+        Array.prototype.forEach.call(json, function(element) {
+            console.log(element.innerHTML);
+            console.log(JSON.parse(element.innerHTML));
+            element.innerHTML = prettyPrintJson.toHtml(JSON.parse(element.innerHTML));
+        });
+    </script>
 </html>
