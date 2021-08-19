@@ -17,8 +17,5 @@
   "bugs": {
     "url": "https://github.com/TournamentOrganisator/Docs/issues"
   },
-  "homepage": "https://github.com/TournamentOrganisator/Docs#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/TournamentOrganisator/Docs#readme"
 }
